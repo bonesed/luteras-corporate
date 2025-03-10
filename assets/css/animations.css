@@ -1,0 +1,370 @@
+/*
+* Lu-Teras コーポレートサイト
+* アニメーションスタイルシート
+*/
+
+/* アニメーションエフェクト */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* アニメーション適用クラス */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+.slide-in-from-bottom {
+    opacity: 0;
+    animation: slideInFromBottom 0.8s ease forwards;
+}
+
+.slide-in-from-left {
+    opacity: 0;
+    animation: slideInFromLeft 0.8s ease forwards;
+}
+
+.slide-in-from-right {
+    opacity: 0;
+    animation: slideInFromRight 0.8s ease forwards;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.float {
+    animation: float 4s ease-in-out infinite;
+}
+
+.rotate {
+    animation: rotate 8s linear infinite;
+}
+
+/* ディレイクラス */
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-400 {
+    animation-delay: 0.4s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+/* ヒーローセクションアニメーション */
+.hero-section .animated-bg {
+    animation: gradientFlow 15s ease infinite;
+    background-size: 200% 200%;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 50%, rgba(0, 163, 255, 0.2) 0%, rgba(10, 35, 81, 0) 50%);
+    animation: pulse 10s infinite;
+}
+
+/* ヘッダーアニメーション */
+.site-header.scrolled {
+    background: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+}
+
+/* モバイルメニューアニメーション */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--color-primary);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-normal);
+    transform: translateY(-20px);
+}
+
+.mobile-nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.mobile-nav ul {
+    text-align: center;
+}
+
+.mobile-nav li {
+    margin: 1.5rem 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: var(--transition-normal);
+    transition-delay: calc(var(--i) * 0.1s);
+}
+
+.mobile-nav.active li {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mobile-nav a {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: var(--transition-normal);
+}
+
+.mobile-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-secondary);
+    transition: var(--transition-normal);
+    transform: translateX(-50%);
+}
+
+.mobile-nav a:hover {
+    color: var(--color-secondary);
+}
+
+.mobile-nav a:hover::after {
+    width: 100%;
+}
+
+/* サービスカードアニメーション */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: var(--transition-slow);
+    z-index: -1;
+}
+
+.service-card:hover::after {
+    transform: scale(12);
+    opacity: 0;
+}
+
+/* 画像ホバーエフェクト */
+.img-hover-zoom {
+    overflow: hidden;
+}
+
+.img-hover-zoom img {
+    transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+    transform: scale(1.1);
+}
+
+/* 数値カウントアップアニメーション */
+.count-up {
+    display: inline-block;
+    transition: color 0.3s;
+}
+
+.count-up:hover {
+    color: var(--color-secondary);
+}
+
+/* SVGアニメーション用スタイル */
+.svg-animation path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: drawStroke 2s forwards;
+}
+
+@keyframes drawStroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* ボタンホバーエフェクト強化 */
+.btn-hover-expand {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-hover-expand::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn-hover-expand:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* その他の特殊アニメーション */
+.blur-bg {
+    backdrop-filter: blur(5px);
+    transition: backdrop-filter 0.3s;
+}
+
+.blur-bg:hover {
+    backdrop-filter: blur(10px);
+}
+
+.glow-on-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.glow-on-hover::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0) 70%, rgba(255, 255, 255, 0.5) 85%, rgba(255, 255, 255, 0) 100%);
+    transform: translateX(-100%);
+    transition: transform 0s;
+}
+
+.glow-on-hover:hover::after {
+    transform: translateX(100%);
+    transition: transform 0.8s;
+}

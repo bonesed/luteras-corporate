@@ -1,0 +1,227 @@
+/*
+* Lu-Teras コーポレートサイト
+* レスポンシブスタイルシート
+*/
+
+/* 大画面デスクトップ (1200px以上) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+    
+    .hero-content h1 {
+        font-size: 4rem;
+    }
+    
+    .section-title {
+        font-size: 3rem;
+    }
+}
+
+/* 通常デスクトップ (992px以上、1200px未満) */
+@media (max-width: 1199px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr 1.5fr 1fr;
+    }
+}
+
+/* タブレット (768px以上、992px未満) */
+@media (max-width: 991px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .hero-content {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-visual {
+        position: relative;
+        width: 100%;
+        height: 50%;
+    }
+    
+    .about-content,
+    .contact-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .about-image,
+    .about-text,
+    .contact-text,
+    .contact-buttons {
+        width: 100%;
+    }
+    
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-nav {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* モバイル (576px以上、768px未満) */
+@media (max-width: 767px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .services-grid,
+    .news-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-nav {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons,
+    .contact-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .contact-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .footer-bottom .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+    
+    .copyright {
+        text-align: center;
+    }
+}
+
+/* 小型モバイル (576px未満) */
+@media (max-width: 575px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+    }
+    
+    .service-card,
+    .news-card {
+        margin: 0 auto;
+        max-width: 90%;
+    }
+    
+    .footer-nav {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-container {
+        padding: 1rem;
+    }
+    
+    .logo img {
+        height: 30px;
+    }
+}
+
+/* メニュートグル用のスタイル */
+@media (max-width: 767px) {
+    body.menu-open {
+        overflow: hidden;
+    }
+    
+    .mobile-nav {
+        display: flex;
+    }
+    
+    .menu-toggle {
+        z-index: 1000;
+    }
+    
+    .menu-toggle.active span {
+        background: white;
+    }
+}
+
+/* タッチデバイス用の調整 */
+@media (hover: none) {
+    .service-card:hover,
+    .news-card:hover,
+    .btn:hover {
+        transform: none;
+    }
+    
+    .service-card::before,
+    .service-card::after {
+        display: none;
+    }
+    
+    .main-nav a::after {
+        display: none;
+    }
+    
+    .btn-hover-expand::before {
+        display: none;
+    }
+}
